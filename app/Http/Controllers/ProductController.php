@@ -27,10 +27,15 @@ class ProductController extends Controller
              }
     }
     
+      public function update($id){
+        $row = DB::table('products')->where('id',$id)->first();
+        return view('product.edit')->with('row',$row);
+    }
+    
     
     public function save(Request $request){
         $post = $request->all();
-        var_dump($post);
+        //var_dump($post);
         
         $v = \Validator::make($request->all(),
                 [
@@ -60,7 +65,9 @@ class ProductController extends Controller
                 
     }
     
-    public function update(Request $request){
+    
+    
+     public function updateSave(Request $request){
         $post = $request->all();
         var_dump($post);
         
@@ -82,15 +89,20 @@ class ProductController extends Controller
                   'product_qty'    =>  $post['product_qty'],
              );
              
-             $i = DB::table('products')->insert($data);
+//             $i = DB::table('products')->insert($data);
+            $i = DB::table('products')
+            ->where('id', $post['id'])
+            ->update($data);
              
              if($i > 0){
-                 \Session::flash('message','Record added successfully');
+                 \Session::flash('message','Record updated successfully');
                  return redirect('productindex');
              }
-         }
-                
+         }                
     }
-   
+    
+       
+    
+    
 }
 
