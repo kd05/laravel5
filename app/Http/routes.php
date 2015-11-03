@@ -28,3 +28,14 @@ Route::get('EditProduct/{id}','ProductController@update');
 
 Route::post('UpdateSave','ProductController@updateSave');
 
+
+//Ajax students pages
+
+Route::get('/','Student@index');
+
+Route::post('save','Student@saverecord');
+
+Route::post('displaydata','Student@getdata');
+
+Route::post('editrow','Student@editdata');
+

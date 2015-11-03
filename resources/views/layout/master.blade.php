@@ -13,6 +13,11 @@
         <!-- Theme style -->
         <link href="{{asset('assets/css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />
         
+         <link href="{{asset('assets/css/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
+        
+         <!-- jQuery 2.0.2 -->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
+        
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -400,12 +405,32 @@
         </div><!-- ./wrapper -->
 
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+       
         <!-- Bootstrap -->
         <script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
         <!-- AdminLTE App -->
         <script src="{{asset('assets/js/AdminLTE/app.js')}}" type="text/javascript"></script>
+        
+        
+        <!-- DATA TABES SCRIPT -->
+        <script src="{{asset('assets/js/plugins/datatables/jquery.dataTables.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/js/plugins/datatables/dataTables.bootstrap.js')}}" type="text/javascript"></script>
+        
+        
+         <!-- page script -->
+        <script type="text/javascript">
+            $(function() {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+            });
+        </script>
 
     </body>
 </html>
